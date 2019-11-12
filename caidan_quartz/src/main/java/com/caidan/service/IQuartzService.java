@@ -3,6 +3,8 @@ package com.caidan.service;
 
 import java.util.Map;
 
+import com.caidan.pojo.model.CustomScheduler;
+
 /**
  * @packageName: com.boot.quartz.service
  * @name: QuartzService
@@ -63,4 +65,11 @@ public interface IQuartzService {
      * 关闭所有任务
      */
     void shutdownAllJobs();
+
+    /**
+     * 	添加定时任务
+     * @param cs
+     * @return
+     */
+	int addJob(CustomScheduler cs) throws Exception;
 }

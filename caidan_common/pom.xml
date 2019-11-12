@@ -7,9 +7,7 @@
     <artifactId>caidan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.caidan</groupId>
   <artifactId>caidan_common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>caidan_common</name>
   <url>http://maven.apache.org</url>
   <properties>

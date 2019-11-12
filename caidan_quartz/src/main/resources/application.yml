@@ -4,8 +4,13 @@ spring:  application:    name: caidan-quartz  datasource:    type: com.aliba
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/quartz?characterEncoding=utf8&allowMultiQueries=true&useSSL=false&autoReconnect=true&serverTimezone=UTC
     username: root
-    password: root
-    
-eureka:  instance:    prefer-ip-address: true
+    password: root  jpa:    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    show-sql: true
+     
+eureka:
+  instance:
+    prefer-ip-address: true
   client:    service-url:      defaultZone: http://localhost:6868/erueka/
-  
+      
+      
