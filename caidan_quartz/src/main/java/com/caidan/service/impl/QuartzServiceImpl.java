@@ -5,6 +5,8 @@ import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.caidan.dao.CustomerSchedulerDao;
+import com.caidan.pojo.model.CustomScheduler;
 import com.caidan.service.IQuartzService;
 
 import java.util.Map;
@@ -17,6 +19,9 @@ public class QuartzServiceImpl implements IQuartzService {
 
     @Autowired
     Scheduler scheduler;
+    
+    @Autowired
+    CustomerSchedulerDao customeSchedulerDao;
 
 
     /**
@@ -154,4 +159,16 @@ public class QuartzServiceImpl implements IQuartzService {
             throw new RuntimeException(e);
         }
     }
+
+	@Override
+	public int addJob(CustomScheduler cs) throws Exception{
+		
+		cs.setStatus((short)1);
+		
+		CustomScheduler customerScheduler = customeSchedulerDao.saveAndFlush(cs);
+		
+		addJob(Class.forName(cs.getClassName()), cs.getName(), cs.getGroup(), cs.getCronExpression(), null);
+		
+		return customerScheduler.getStatus().intValue();
+	}
 }
