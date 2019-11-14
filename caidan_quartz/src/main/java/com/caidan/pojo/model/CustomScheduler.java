@@ -55,7 +55,6 @@ public class CustomScheduler {
 		this.name = name;
 	}
 
-
 	public String getGroup() {
 		return group;
 	}
@@ -70,6 +69,14 @@ public class CustomScheduler {
 
 	public void setClassName(String className) {
 		this.className = className;
+	}
+
+	public Short getStatus() {
+		return status;
+	}
+
+	public void setStatus(Short status) {
+		this.status = status;
 	}
 
 	public String getCronExpression() {
@@ -93,22 +100,6 @@ public class CustomScheduler {
 	}
 
 	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
-	}
-
-	public Short getStatus() {
-		return status;
-	}
-
-	public void setStatus(Short status) {
-		this.status = status;
-	}
-
-	public String getUserName() {
-		return createUser;
-	}
-
-	public void setUserName(String createUser) {
 		this.createUser = createUser;
 	}
 
@@ -137,5 +128,5 @@ public class CustomScheduler {
 	}
 	
 	
-	
+
 }
