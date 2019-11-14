@@ -177,11 +177,11 @@ CREATE INDEX IDX_QRTZ_FT_T_G ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_NAME,TRIG
 CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
 
 CREATE TABLE `qrtz_custom_scheduler` (
-  `scheduler_id` bigint(20) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `group` varchar(255) DEFAULT NULL,
+  `scheduler_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `job_name` varchar(255) DEFAULT NULL,
+  `group_name` varchar(255) DEFAULT NULL,
   `class_name` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
+  `status_code` varchar(255) DEFAULT NULL,
   `cron_expression` varchar(255) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
@@ -189,6 +189,6 @@ CREATE TABLE `qrtz_custom_scheduler` (
   `create_user` varchar(255) DEFAULT NULL,
   `update_user` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`scheduler_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10000000 DEFAULT CHARSET=utf8;
 
 commit;

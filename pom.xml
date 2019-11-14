@@ -72,5 +72,6 @@
     <module>caidan_common</module>
     <module>caidan_quartz</module>
     <module>caidan_eureka</module>
+    <module>caidan_user</module>
   </modules>
 </project>

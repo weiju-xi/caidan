@@ -2,6 +2,7 @@ package com.caidan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class QuartzController {
 	private IQuartzService quartzService;
 
 	@PostMapping("/add")
-	public AjaxResult<CustomSchedulerVO> add(CustomScheduler cs) throws Exception{
+	public AjaxResult<CustomSchedulerVO> add(@RequestBody CustomScheduler cs) throws Exception{
 		
 		quartzService.addJob(cs);
 		

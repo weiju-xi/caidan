@@ -3,6 +3,8 @@ package com.caidan.pojo.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,21 +13,22 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(value = "定时任务信息")
-@Table(name = "qutz_custom_scheduler")
+@Table(name = "qrtz_custom_scheduler")
 @Entity
 public class CustomScheduler {
 
 	@ApiModelProperty(value = "主键")
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long schedulerId;
 	@ApiModelProperty(value = "任务名称")
-	private String name;
+	private String jobName;
 	@ApiModelProperty(value = "任务分组")
-	private String group;
+	private String groupName;
 	@ApiModelProperty(value = "调度定时任务类全名")
 	private String className;
 	@ApiModelProperty(value = "转台编码", allowableValues = "1,2,3")
-	private Short status;
+	private Short statusCode;
 	@ApiModelProperty(value = "cron表达式")
 	private String cronExpression;
 	@ApiModelProperty(value = "描述")
@@ -47,21 +50,6 @@ public class CustomScheduler {
 		this.schedulerId = schedulerId;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getGroup() {
-		return group;
-	}
-
-	public void setGroup(String group) {
-		this.group = group;
-	}
 
 	public String getClassName() {
 		return className;
@@ -71,12 +59,29 @@ public class CustomScheduler {
 		this.className = className;
 	}
 
-	public Short getStatus() {
-		return status;
+	
+	public String getJobName() {
+		return jobName;
 	}
 
-	public void setStatus(Short status) {
-		this.status = status;
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+	}
+
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+
+	public Short getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(Short statusCode) {
+		this.statusCode = statusCode;
 	}
 
 	public String getCronExpression() {

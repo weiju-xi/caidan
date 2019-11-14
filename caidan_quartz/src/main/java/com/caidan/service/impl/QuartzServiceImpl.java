@@ -163,12 +163,12 @@ public class QuartzServiceImpl implements IQuartzService {
 	@Override
 	public int addJob(CustomScheduler cs) throws Exception{
 		
-		cs.setStatus((short)1);
+		cs.setStatusCode((short)1);
 		
 		CustomScheduler customerScheduler = customeSchedulerDao.saveAndFlush(cs);
 		
-		addJob(Class.forName(cs.getClassName()), cs.getName(), cs.getGroup(), cs.getCronExpression(), null);
+		addJob(Class.forName(cs.getClassName()), cs.getJobName(), cs.getGroupName(), cs.getCronExpression(), null);
 		
-		return customerScheduler.getStatus().intValue();
+		return customerScheduler.getStatusCode().intValue();
 	}
 }
