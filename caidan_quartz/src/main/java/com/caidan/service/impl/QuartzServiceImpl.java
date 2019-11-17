@@ -1,14 +1,20 @@
 package com.caidan.service.impl;
 
 
+import org.apache.commons.collections.CollectionUtils;
 import org.quartz.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.caidan.dao.CustomerSchedulerDao;
 import com.caidan.pojo.model.CustomScheduler;
+import com.caidan.pojo.vo.CustomSchedulerVO;
 import com.caidan.service.IQuartzService;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -170,5 +176,19 @@ public class QuartzServiceImpl implements IQuartzService {
 		addJob(Class.forName(cs.getClassName()), cs.getJobName(), cs.getGroupName(), cs.getCronExpression(), null);
 		
 		return customerScheduler.getStatusCode().intValue();
+	}
+
+	@Override
+	public List<CustomSchedulerVO> findAllQuartzs() {
+		List<CustomScheduler> list = customeSchedulerDao.findAll();
+		List<CustomSchedulerVO> dataList = new ArrayList<>();
+		if(CollectionUtils.isNotEmpty(list)) {
+			for (CustomScheduler cs : list) {
+				CustomSchedulerVO csvo = new CustomSchedulerVO();
+				BeanUtils.copyProperties(cs, csvo);
+				dataList.add(csvo);
+			}
+		}
+		return dataList;
 	}
 }

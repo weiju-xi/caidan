@@ -1,9 +1,11 @@
 package com.caidan.service;
 
 
+import java.util.List;
 import java.util.Map;
 
 import com.caidan.pojo.model.CustomScheduler;
+import com.caidan.pojo.vo.CustomSchedulerVO;
 
 /**
  * @packageName: com.boot.quartz.service
@@ -72,4 +74,10 @@ public interface IQuartzService {
      * @return
      */
 	int addJob(CustomScheduler cs) throws Exception;
+
+	/**
+	 * 	查看所有定时任务
+	 * @return
+	 */
+	List<CustomSchedulerVO> findAllQuartzs();
 }

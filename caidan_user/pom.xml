@@ -46,5 +46,16 @@
 	    <artifactId>druid</artifactId>  
 	    <version>1.1.5</version>  
 	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-openfeign</artifactId>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.caidan</groupId>
+    	<artifactId>caidan_common</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
