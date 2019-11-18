@@ -3,11 +3,15 @@ server:
 spring:  application:    name: caidan-managereureka:  client:    service-url:      defaultZone: http://localhost:6868/eureka/
   instance:    prefer-ip-address: true
 zuul:  routes:    caidan-user:
-      path: /user/**
+      path: /api-user/**
       service-id: caidan-user
     caidan-quartz:
-      path: /quartz/**
+      path: /api-quartz/**
       service-id: caidan-quartz
+      
+jwt:
+  config:
+    key: caidan
 
   
       

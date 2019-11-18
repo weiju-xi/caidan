@@ -61,6 +61,12 @@
 		    <artifactId>commons-collections</artifactId>
 		    <version>3.2.1</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+        </dependency>
 	</dependencies>
 	
 
@@ -80,5 +86,6 @@
     <module>caidan_eureka</module>
     <module>caidan_user</module>
     <module>caidan_manager</module>
+    <module>caidan_web</module>
   </modules>
 </project>
