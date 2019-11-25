@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: user
+      profile: dev
+      label: master
+      uri:      - http://localhsot:9007

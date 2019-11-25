@@ -87,5 +87,6 @@
     <module>caidan_user</module>
     <module>caidan_manager</module>
     <module>caidan_web</module>
+    <module>caidan_config</module>
   </modules>
 </project>
