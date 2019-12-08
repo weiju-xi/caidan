@@ -1,6 +1,7 @@
 spring:
   application:
     name: caidan-config
-  cloud:    config:      server:        git:          uri: https://github.com/xiweiju/caidan_config_dev.git  rabbitmq:    host: 127.0.0.1
-management:  endpoints:    web:      exposure:        include:        - bus-refresh
+  cloud:    config:      server:        git:          uri: https://github.com/xiweiju/caidan_config_dev.git
+  rabbitmq:    host: 127.0.0.1
+management:   endpoints:    web:      exposure:        include:        - bus-refresh
 server:  port: 9007

@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @Component
 @ConfigurationProperties("jwt.config")
 public class JwtUtil {
@@ -43,5 +41,20 @@ public class JwtUtil {
                 .getBody();
     }
 
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public long getTtl() {
+		return ttl;
+	}
+
+	public void setTtl(long ttl) {
+		this.ttl = ttl;
+	}
 
 }

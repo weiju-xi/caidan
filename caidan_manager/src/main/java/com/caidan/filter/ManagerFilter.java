@@ -35,22 +35,22 @@ public class ManagerFilter extends ZuulFilter{
 		RequestContext requestContext = RequestContext.getCurrentContext();
 		HttpServletRequest request = requestContext.getRequest();
 		String header = request.getHeader("Authorization");
-		if(StringUtils.isNotBlank("Authorization")) {
-			if(header.startsWith("Bearer")) {
-				String token = header.substring(7);
-				//	不想写了 ,等到写 jwt的时候再返工
-//				try {
-//					Claims parseJWT = jwtUtil.parseJWT(token);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//					requestContext.setSendZuulResponse(false); //终止运行
-//				}
-				return null;
-			}
-			
-		}
-		return null;
+//		if(StringUtils.isNotBlank("Authorization")) {
+//			if(header.startsWith("Bearer")) {
+////				String token = header.substring(7);
+//				//	不想写了 ,等到写 jwt的时候再返工
+////				try {
+////					Claims parseJWT = jwtUtil.parseJWT(token);
+////					
+////				} catch (Exception e) {
+////					e.printStackTrace();
+////					requestContext.setSendZuulResponse(false); //终止运行
+////				}
+//				return null;
+//			}
+//			
+//		}
+		return 1;
 	}
 
 	/**

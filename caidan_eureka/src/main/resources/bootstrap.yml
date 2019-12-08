@@ -4,4 +4,4 @@ spring:
       name: eurake
       profile: dev
       label: master
-      uri:      - http://localhsot:9007
+      uri:      - http://localhost:9007      request-read-timeout: 60000

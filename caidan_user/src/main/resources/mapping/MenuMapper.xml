@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caidan.user.dao.MenuDao">
+
+	<resultMap id="BaseResultMap"
+		type="com.caidan.user.pojo.Menu">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="parentId" jdbcType="INTEGER"
+			property="parentId" />
+		<result column="level" jdbcType="INTEGER" property="level" />
+		<result column="state" jdbcType="INTEGER" property="state" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="url" jdbcType="VARCHAR" property="url" />
+	</resultMap>
+	<resultMap id="UserMenuResultMap"
+		type="com.caidan.user.pojo.vo.UserMenuVO">
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="parentId" jdbcType="INTEGER"
+			property="parentId" />
+		<result column="level" jdbcType="INTEGER" property="level" />
+		<result column="url" jdbcType="VARCHAR" property="url" />
+	</resultMap>
+
+	<select id="selectUserMenu" resultMap="UserMenuResultMap">
+		SELECT
+		m.name,
+		m.level,
+		m.url,
+		m.parent_id
+		FROM
+		tb_user_role ur
+		LEFT JOIN tb_role_menu rm ON ur.role_name = rm.role_name
+		LEFT JOIN tb_menu m ON rm.menu_id = m.id
+		WHERE
+		ur.user_id = #{userId}
+	</select>
+
+</mapper>
