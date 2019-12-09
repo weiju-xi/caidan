@@ -1,6 +1,8 @@
 package com.caidan.user.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,6 +59,18 @@ public class AdminService {
 	
 	public TableDataInfo<UserMenuVO> selectUserMenu(String userName){
 		List<UserMenuVO> dataList = menuDao.selectUserMenu(userName);
+		for (UserMenuVO vo : dataList) {
+			if(vo.getLevel() == 1) {
+				List<UserMenuVO> list = new ArrayList<UserMenuVO>();
+				for (UserMenuVO um : dataList) {
+					if(vo.getId().equals(um.getParentId())) {
+						list.add(um);
+					}
+				}
+				vo.setChildren(list);
+			}
+		}
+		dataList = dataList.stream().filter(um -> um.getLevel() == 1).collect(Collectors.toList());
 		return new TableDataInfo<UserMenuVO>(dataList, dataList != null ? dataList.size() : 0);
 	}
 }

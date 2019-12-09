@@ -6,7 +6,7 @@
 		type="com.caidan.user.pojo.Menu">
 		<result column="id" jdbcType="INTEGER" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="parentId" jdbcType="INTEGER"
+		<result column="parent_id" jdbcType="INTEGER"
 			property="parentId" />
 		<result column="level" jdbcType="INTEGER" property="level" />
 		<result column="state" jdbcType="INTEGER" property="state" />
@@ -15,8 +15,9 @@
 	</resultMap>
 	<resultMap id="UserMenuResultMap"
 		type="com.caidan.user.pojo.vo.UserMenuVO">
+		<result column="id" jdbcType="INTEGER" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="parentId" jdbcType="INTEGER"
+		<result column="parent_id" jdbcType="INTEGER"
 			property="parentId" />
 		<result column="level" jdbcType="INTEGER" property="level" />
 		<result column="url" jdbcType="VARCHAR" property="url" />
@@ -24,6 +25,7 @@
 
 	<select id="selectUserMenu" resultMap="UserMenuResultMap">
 		SELECT
+		m.id,
 		m.name,
 		m.level,
 		m.url,
